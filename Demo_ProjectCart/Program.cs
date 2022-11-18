@@ -11,7 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<CartAPIDbcontext>(options => options.UseInMemoryDatabase("CartDB"));
+//builder.Services.AddDbContext<CartAPIDbcontext>(options => options.UseInMemoryDatabase("CartDB"));
+builder.Services.AddDbContext<CartAPIDbcontext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionStrings")));
+
 
 var app = builder.Build();
 
