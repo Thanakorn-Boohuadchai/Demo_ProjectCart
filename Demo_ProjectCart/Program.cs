@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 //builder.Services.AddDbContext<CartAPIDbcontext>(options => options.UseInMemoryDatabase("CartDB"));
 builder.Services.AddDbContext<CartAPIDbcontext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionStrings")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres")));
 
 
 var app = builder.Build();
